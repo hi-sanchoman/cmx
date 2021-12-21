@@ -155,7 +155,15 @@ class SampleController extends AppBaseController
             return redirect(route('samples.index'));
         }
 
-        $sample = $this->sampleRepository->update($request->all(), $id);
+        $input = $request->all();
+
+        $values = ['p', 'k', 's', 'humus', 'humus_mass', 'no3', 'ph', 'b', 'fe', 'cu', 'zn', 'mn', 'na', 'calcium', 'magnesium', 'salinity', 'absorbed_sum', 'na_x2', 'calcium_v1', 'calcium_v2', 'calcium_c', 'magnesium_v1', 'magnesium_v2', 'magnesium_c', 'absorbed_sum_v', 'absorbed_sum_m', 'absorbed_sum_c',];
+
+        foreach ($values as $value) {
+            $input[$value] = str_replace(',', '.', $input[$value]);
+        }
+
+        $sample = $this->sampleRepository->update($input, $id);
 
         $this->_prepareResult($sample);
 
