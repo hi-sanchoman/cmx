@@ -23,13 +23,12 @@ Auth::routes(['register' => false]);
 Route::get('/show-cartogram/{id}/{value}', [App\Http\Controllers\HomeController::class, 'cartogram']);
 Route::get('/show-legend/{id}/{value}', [App\Http\Controllers\HomeController::class, 'legend']);
 
-
+Route::get('/clients/{id}/cabinet', [App\Http\Controllers\ClientController::class, 'cabinet']);
+    
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     
-
-
     Route::get('/test', function() {
         return view('test.test');
     });
@@ -38,13 +37,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/cartograms/{id}/generate', [App\Http\Controllers\CartogramController::class, 'generate'])->name('cartograms.generate');
 
 
-
-
-
     Route::resource('regions', App\Http\Controllers\RegionController::class);
 
 
-    Route::get('/clients/{id}/cabinet', [App\Http\Controllers\ClientController::class, 'cabinet']);
     Route::get('/clients/{id}/protocol', [App\Http\Controllers\ClientController::class, 'protocol']);
     Route::post('/clients/{id}/generate-protocol', [App\Http\Controllers\ProtocolController::class, 'generateForClient']);
     Route::resource('clients', App\Http\Controllers\ClientController::class);

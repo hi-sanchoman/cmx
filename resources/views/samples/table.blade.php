@@ -17,6 +17,7 @@
         @foreach($samples as $sample)
 
             @php
+                if ($sample->point == null) continue;
                 if ($sample->point->polygon == null) continue;
                 if ($sample->point->polygon->field == null) continue;
                 if ($sample->point->polygon->field->client == null) continue;

@@ -89,7 +89,7 @@ class Sample extends Model
         'passed' => 'string',
         'accepted' => 'string',
         'notes' => 'string',
-        'num' => 'integer',
+        'num' => 'string',
     ];
 
     /**
