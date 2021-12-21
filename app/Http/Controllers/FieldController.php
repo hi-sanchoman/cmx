@@ -111,7 +111,8 @@ class FieldController extends AppBaseController
         $field = $this->fieldRepository->create($input);
 
         // download from aisgzk
-        $layer = 51;    // where to find?
+        $layer = $this->_getLayerId($field);
+        
         $url = 'http://www.aisgzk.kz/aisgzk/Proxy/aisgzkZem2/MapServer/find?f=json&searchText='.$field->cadnum.'&contains=false&returnGeometry=true&layers='.$layer.'&searchFields=KAD_NOMER&sr=3857';
         $response = Http::get($url);
 
@@ -425,6 +426,21 @@ class FieldController extends AppBaseController
 
         return redirect(route('fields.index'));
     }
+
+
+    /**
+     * Get layer ID
+     */
+    public function _getLayerId($field) {
+
+        $name = substr($field->cadnum, 0, 2) . '_' . substr($field->cadnum, 2, 3);
+        // dd([$field->cadnum, $name]);
+
+        $layer = DB::table('layers')->where('name', $name)->first();
+        // dd($layer);
+
+        return $layer->num;
+    } 
 
 
     /**

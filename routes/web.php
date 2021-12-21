@@ -29,9 +29,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     
-    Route::get('/test', function() {
-        return view('test.test');
-    });
+    Route::get('/test', [App\Http\Controllers\TestController::class, 'index']);
 
 
     Route::get('/cartograms/{id}/generate', [App\Http\Controllers\CartogramController::class, 'generate'])->name('cartograms.generate');

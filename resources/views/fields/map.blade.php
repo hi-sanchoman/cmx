@@ -131,7 +131,7 @@
         @endif
     @endforeach
 
-    // console.log('fields', fields);
+    console.log('fields', fields);
     // console.log('points', _points);
 
 </script>
@@ -300,12 +300,15 @@
 
             for (var i = 0; i < fields[0].length; i++) {
                 var ring = fields[f][i];
+                var innerCoordinates = [];
+
+                console.log(ring);
 
                 for (var j = 0; j < ring.length; j++) {
                     var lnglat = meters2degrees(ring[j]);
                     
                     // console.log(lnglat);
-                    coordinates.push(lnglat);
+                    innerCoordinates.push(lnglat);
 
                     // lat
                     if (lnglat[1] > maxLat)
@@ -321,10 +324,13 @@
                     if (lnglat[0] < minLng)
                         minLng = lnglat[0];
                 }
+
+                coordinates.push(innerCoordinates);
             }
         }
+        console.log(coordinates);
 
-        turfPolygon = turf.polygon([coordinates], { name: "poly" });
+        turfPolygon = turf.polygon(coordinates, { name: "poly" });
         // console.log(minLat, maxLat);
         // console.log(minLng, maxLng);
 
