@@ -89,6 +89,8 @@ class ResultController extends AppBaseController
     {
         $input = $request->all();
 
+        dd($input['humus']);
+
         $result = $this->resultRepository->create($input);
 
         Flash::success(__('messages.saved', ['model' => __('models/results.singular')]));
@@ -156,7 +158,17 @@ class ResultController extends AppBaseController
             return redirect(route('results.index'));
         }
 
-        $result = $this->resultRepository->update($request->all(), $id);
+        $input = $request->all();
+
+        $values = ['humus', 'p', 'no3', 's', 'k', 'ph', 'b', 'fe', 'salinity', 'absorbed_sum', 'mn', 'zn', 'cu', 'calcium', 'magnesium', 'na',];
+
+        foreach ($values as $value) {
+            $input[$value] = str_replace(',', '.', $input[$value]);
+        }
+        
+        // dd($input);
+
+        $result = $this->resultRepository->update($input, $id);
 
         Flash::success(__('messages.updated', ['model' => __('models/results.singular')]));
 
