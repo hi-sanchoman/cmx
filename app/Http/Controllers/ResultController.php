@@ -163,6 +163,7 @@ class ResultController extends AppBaseController
         $values = ['humus', 'p', 'no3', 's', 'k', 'ph', 'b', 'fe', 'salinity', 'absorbed_sum', 'mn', 'zn', 'cu', 'calcium', 'magnesium', 'na',];
 
         foreach ($values as $value) {
+            if (!isset($input[$value])) continue;
             $input[$value] = str_replace(',', '.', $input[$value]);
         }
         
