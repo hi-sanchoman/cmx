@@ -501,6 +501,7 @@ class FieldController extends AppBaseController
 
         if (isset($data['Document']['Folder']['Folder']['Folder'])) {
             $dd = $data['Document']['Folder']['Folder']['Folder'];
+            // dd($dd);
 
             if (isset($dd['Folder'])) {
                 // dd($data['Folder']);
@@ -536,15 +537,78 @@ class FieldController extends AppBaseController
                     ];
                 }
             } else {
-                foreach ($data['Document']['Folder']['Folder']['Folder'] as $field) {  
-                    if (isset($field['Folder'])) {
+                // dd($dd);
 
-                        foreach ($field['Folder'] as $f) {
+                if (isset($dd['Placemark'])) {
+                    // dd($dd['Placemark']);
+
+                    $square = '';
+                    $geometry = [];
+                    $points = [];
+
+                    foreach ($dd['Placemark'] as $placemark) {
+                        if (isset($placemark['Polygon'])) {
+                            $square = $placemark['name'];
+                            $geometry = $placemark['Polygon'];
+                        } 
+
+                        if (isset($placemark['Point'])) {
+                            $points[] = [
+                                'name' => $placemark['name'],
+                                'geometry' => $placemark['Point']
+                            ];
+                        }
+
+                        // dd($square);
+                    }
+
+                    $fields[] = [
+                        'cadnum' => $dd['name'],
+                        'square' => doubleval($square),
+                        'geometry' => $geometry,
+                        'points' => $points
+                    ];
+                } else {
+                    foreach ($dd as $field) {  
+                        // dd($field);
+
+                        if (isset($field['Folder'])) {
+
+                            foreach ($field['Folder'] as $f) {
+                                $square = '';
+                                $geometry = [];
+                                $points = [];
+
+                                foreach ($f['Placemark'] as $placemark) {
+                                    if (isset($placemark['Polygon'])) {
+                                        $square = $placemark['name'];
+                                        $geometry = $placemark['Polygon'];
+                                    } 
+
+                                    if (isset($placemark['Point'])) {
+                                        $points[] = [
+                                            'name' => $placemark['name'],
+                                            'geometry' => $placemark['Point']
+                                        ];
+                                    }
+
+                                    // dd($square);
+                                }
+
+                                $fields[] = [
+                                    'cadnum' => $field['name'],
+                                    'square' => doubleval($square),
+                                    'geometry' => $geometry,
+                                    'points' => $points
+                                ];
+                            }
+
+                        } else {
                             $square = '';
                             $geometry = [];
                             $points = [];
 
-                            foreach ($f['Placemark'] as $placemark) {
+                            foreach ($field['Placemark'] as $placemark) {
                                 if (isset($placemark['Polygon'])) {
                                     $square = $placemark['name'];
                                     $geometry = $placemark['Polygon'];
@@ -567,36 +631,10 @@ class FieldController extends AppBaseController
                                 'points' => $points
                             ];
                         }
-
-                    } else {
-                        $square = '';
-                        $geometry = [];
-                        $points = [];
-
-                        foreach ($field['Placemark'] as $placemark) {
-                            if (isset($placemark['Polygon'])) {
-                                $square = $placemark['name'];
-                                $geometry = $placemark['Polygon'];
-                            } 
-
-                            if (isset($placemark['Point'])) {
-                                $points[] = [
-                                    'name' => $placemark['name'],
-                                    'geometry' => $placemark['Point']
-                                ];
-                            }
-
-                            // dd($square);
-                        }
-
-                        $fields[] = [
-                            'cadnum' => $field['name'],
-                            'square' => doubleval($square),
-                            'geometry' => $geometry,
-                            'points' => $points
-                        ];
                     }
                 }
+
+                
             }
 
             
