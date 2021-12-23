@@ -355,6 +355,15 @@ class ClientController extends AppBaseController
 
         // dd($fields);
 
-        return view('clients.map', compact('client', 'fields'));
+        $token = md5($client->password);
+        // dd($token);
+
+        if (!$request->has('token') || $request->token != $token) {
+            return 'Ошибка доступа: неверный токен';
+        }
+
+        $value = $request->has('value') ? $request->value : 'humus';
+
+        return view('clients.map', compact('client', 'fields', 'token', 'value'));
     }
 }

@@ -29,6 +29,10 @@
                     <div class='btn-group'>
                         <a href="{!! route('clients.show', [$client->id]) !!}" class='btn btn-light action-btn '><i class="fa fa-eye"></i></a>
                         <a href="{!! route('clients.edit', [$client->id]) !!}" class='btn btn-warning action-btn edit-btn'><i class="fa fa-edit"></i></a>
+
+                        <a href="/clients/{{ $client->id }}/cabinet?token={{ md5($client->password) }}" class='btn btn-info action-btn edit-btn' style="margin-right: 20px;" target="_blank"><i class="fa fa-users"></i></a>
+                        
+
                         {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger action-btn delete-btn', 'onclick' => 'return confirm("'.__('crud.are_you_sure').'")']) !!}
                     </div>
                     {!! Form::close() !!}

@@ -89,26 +89,26 @@
     <div id="map" style=""></div>
 
     <div id="controls">
-        <div style="margin-left: 60px;">
+        <div style="margin-left: 10px;">
             <select id="value_picker">
-                <option value="humus">гумус</option>
-                <option value="ph">ph</option>
-                <option value="p">фосфор</option>
-                <option value="s">сера</option>
-                <option value="k">калий</option>
-                <option value="no3">нитраты</option>
+                <option value="humus" @if ($value == 'humus') selected @endif>гумус</option>
+                <option value="ph" @if ($value == 'ph') selected @endif>ph</option>
+                <option value="p" @if ($value == 'p') selected @endif>фосфор</option>
+                <option value="s" @if ($value == 's') selected @endif>сера</option>
+                <option value="k" @if ($value == 'k') selected @endif>калий</option>
+                <option value="no3" @if ($value == 'no3') selected @endif>нитраты</option>
 
-                <option value="b">бор</option>
-                <option value="fe">железо</option>
-                <option value="mn">марганец</option>
-                <option value="cu">медь</option>
-                <option value="zn">цинк</option>
-                <option value="na">натрий</option>
+                <option value="b" @if ($value == 'b') selected @endif>бор</option>
+                <option value="fe" @if ($value == 'fe') selected @endif>железо</option>
+                <option value="mn" @if ($value == 'mn') selected @endif>марганец</option>
+                <option value="cu" @if ($value == 'cu') selected @endif>медь</option>
+                <option value="zn" @if ($value == 'zn') selected @endif>цинк</option>
+                <option value="na" @if ($value == 'na') selected @endif>натрий</option>
 
-                <option value="calcium">кальций</option>
-                <option value="magnesium">магний</option>
-                <option value="salinity">общая засоленность</option>
-                <option value="absorbed_sum">сумма поглощенных оснований</option>
+                <option value="calcium" @if ($value == 'calcium') selected @endif>кальций</option>
+                <option value="magnesium" @if ($value == 'magnesium') selected @endif>магний</option>
+                <option value="salinity" @if ($value == 'salinity') selected @endif>общая засоленность</option>
+                <option value="absorbed_sum" @if ($value == 'absorbed_sum') selected @endif>сумма поглощенных оснований</option>
             </select>
             <button id="btnShow" class="btn btn-info"> показать</button>
 
@@ -229,17 +229,19 @@
         }
 
         function pwd() {
-            console.log('ask for password');
+            // console.log('ask for password');
             
-            let ask = prompt("Введите пароль от кабинета: ");
+            // var ask = '';
+
+            // ask = prompt("Введите пароль от кабинета: ");
         
-            switch (ask) {
-              case "{!! $client->password !!}":
-                work();
-                break;
-              default:
-                deny();
-            }
+            // switch (ask) {
+            //   case "{!! $client->password !!}":
+            //     work();
+            //     break;
+            //   default:
+            //     deny();
+            // }
         }
 
         function deny() {
@@ -435,7 +437,7 @@
                 _results['calcium'].push(point.sample.result.calcium);
                 _results['magnesium'].push(point.sample.result.magnesium);
                 _results['salinity'].push(point.sample.result.salinity);
-                _results['absorbed_sum'].push(point.sample.result.absorubed_sum);
+                _results['absorbed_sum'].push(point.sample.result.absorbed_sum);
 
                 _results['id'].push(point.id);
 
@@ -630,7 +632,7 @@
                     return '#0039a6'; 
                 } else if (value <= 10) {
                     return '#034694';
-                } else if (value > 10) {
+                } else {
                     return '#002D62';
                 }
             } else if (num == 'ph') {
@@ -644,9 +646,9 @@
                     return '#DC143C'; 
                 } else if (value < 7) {
                     return '#ffe5b4';
-                } else if (value < 8) {
+                } else if (value < 8.1) {
                     return '#8b00ff';
-                } else if (value >=8.1 ) {
+                } else {
                     return '#00bfff';
                 }
             } else if (num == 'no3') {
@@ -960,11 +962,12 @@
         $('#btnShow').click(function() {
             var value = $('#value_picker').val();
 
-            location.href = '/clients/' + {!! $client->id !!} + '/cabinet?value=' + value;
+            location.href = '/clients/' + {!! $client->id !!} + '/cabinet?token={{ $token }}' + '&value=' + value;
         })
 
         // START HERE
-        pwd();
+        // pwd();
+        work();
     </script>
 
 </body>
