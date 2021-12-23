@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPasswordToClientsTable extends Migration
+class AddFieldsToPathsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddPasswordToClientsTable extends Migration
      */
     public function up()
     {
-        Schema::table('clients', function (Blueprint $table) {
-            $table->string('password')->nullable();
+        Schema::table('paths', function (Blueprint $table) {
+            $table->string('unit')->nullable();
+            $table->longText('path');
         });
     }
 
@@ -25,8 +26,9 @@ class AddPasswordToClientsTable extends Migration
      */
     public function down()
     {
-        Schema::table('clients', function (Blueprint $table) {
-            $table->dropColumn('password');
+        Schema::table('paths', function (Blueprint $table) {
+            $table->dropColumn('unit');
+            $table->dropColumn('path');
         });
     }
 }

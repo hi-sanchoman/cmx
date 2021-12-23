@@ -41,6 +41,12 @@
     <a href="{{ route('qrcodes.index') }}"><i class="fa fa-edit"></i><span>@lang('models/qrcodes.plural')</span></a>
 </li> -->
 
+<li class="menu-header">Выезды</li>
+
+<li class="{{ Request::is('paths*') ? 'active' : '' }}">
+    <a href="{{ route('paths.index') }}"><i class="fa fa-route"></i><span>@lang('models/paths.plural')</span></a>
+</li>
+
 <li class="menu-header">Лаборатория</li>
 
 <li class="{{ Request::is('samples*') ? 'active' : '' }}">
@@ -68,3 +74,5 @@
 <li class="{{ Request::is('regions*') ? 'active' : '' }}">
     <a href="{{ route('regions.index') }}"><i class="fa fa-city"></i><span>@lang('models/regions.plural')</span></a>
 </li>
+
+

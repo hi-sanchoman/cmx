@@ -518,7 +518,7 @@
 
 <script>
     // console.log(Math.exp(0.3));
-    console.log(Math.atan(0.75));
+    // console.log(Math.atan(0.75));
 
     var currentMarker = undefined;
     var currentCoordinates = [];

@@ -91,5 +91,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/protocols/{id}/prepare', [App\Http\Controllers\ProtocolController::class, 'preparePost']);
     Route::post('/protocols/{id}/generate', [App\Http\Controllers\ProtocolController::class, 'generate']);
     Route::resource('protocols', App\Http\Controllers\ProtocolController::class);
+    
+
+    Route::post('/save_route', [App\Http\Controllers\PathController::class, 'save']);
+    Route::resource('paths', App\Http\Controllers\PathController::class);
 
 });
+
