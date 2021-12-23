@@ -360,7 +360,7 @@
                         path: JSON.stringify(res)
                     }
 
-                    $.post('/save_route', theData, function(result) {
+                    $.post('http://185.146.3.112/plesk-site-preview/cemexlab.kz/https/185.146.3.112/public/save_route', theData, function(result) {
 
                         if (result == 1) {
                             // location.href = '/paths';
