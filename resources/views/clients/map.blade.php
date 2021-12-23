@@ -353,6 +353,12 @@
             }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
             
             _map.fitBounds(bounds, { padding: 200 });   
+
+            _map.flyTo(({
+                center: coordinates[0],
+                zoom: 13,
+                duration: 0,
+            });
         }
 
         function drawFields() {
