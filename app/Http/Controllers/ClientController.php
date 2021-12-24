@@ -209,7 +209,7 @@ class ClientController extends AppBaseController
         // dd($filename);
 
         foreach ($cartograms as $key => $cartogram) {
-            $zip->addFile(public_path('docs/cartograms' . $cartogram->id . '.zip'), 'Поле №' . $cartogram->field->num . '.zip');
+            $zip->addFile(public_path($cartogram->access_url), 'Поле №' . $cartogram->field->num . '.zip');
         }
 
         // dd($zip);
