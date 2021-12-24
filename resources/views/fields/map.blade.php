@@ -20,7 +20,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-        <h1>@lang('models/fields.singular') ({{ $field->square }} га)</h1>
+        <h1>@lang('models/fields.singular') (<span id="area"></span> га)</h1>
         <div class="section-header-breadcrumb">
             <!-- <a href="{{ route('fields.index') }}" class="btn btn-primary form-btn float-right">@lang('crud.back')</a> -->
         </div>
@@ -39,6 +39,9 @@
                     <button type="button" id="btnGrid" class="btn btn-secondary">Сетка</button>
                     
                     <input type="text" id="txtDistance" name="txtDistance" style="width: 120px; margin-left: 10px; margin-right: 5px;" value="1">
+                    <button id="btnFiveGa" class="btn btn-secondary">5га</button>
+                    <button id="btnTwentyFiveGa" class="btn btn-secondary">25га</button>
+                    
                     <button type="button" id="btnDots" class="btn btn-secondary">Точки</button>
                     <button type="button" id="btnCreatePoints" class="btn btn-info" style="visibility: hidden;">Создать метки</button>
                 </div>
@@ -171,6 +174,11 @@
                 }
             }
         });
+
+        // calculate area
+        var polygonArea = turf.polygon([coordinates]);
+        var area = turf.area(polygonArea);
+        $('#area').html((area / 10000).toFixed(2));
 
         // Add a new layer to visualize the polygon.
         var fieldId = 'field';
@@ -609,6 +617,14 @@
 
         updateBtns();
         updateMap();
+    });
+
+    $('#btnFiveGa').click(function() {
+        $('#txtDistance').val(2.236);
+    });
+
+    $('#btnTwentyFiveGa').click(function() {
+        $('#txtDistance').val(5);
     });
 
     $('#btnDots').click(function() {
