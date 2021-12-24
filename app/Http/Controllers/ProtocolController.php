@@ -477,8 +477,13 @@ class ProtocolController extends AppBaseController
 
             // if ($result->humus == null) continue;
 
+            $year = '';
+            if ($date->date_completed != null) {
+                $year = $sample->date_completed->format('Y');
+            }
+
             $section->addText();$section->addText();
-            $section->addText('Проба почвы - ' . $sample->num . '/П/' . $client->num . '/' . $sample->date_completed->format('Y') . ' (метка ' . $sample->point->num . ', ' . $field->cadnum . ', ' . $field->square . ' га)', 'bold');
+            $section->addText('Проба почвы - ' . $sample->num . '/П/' . $client->num . '/' . $year . ' (метка ' . $sample->point->num . ', ' . $field->cadnum . ', ' . $field->square . ' га)', 'bold');
 
             $table = $section->addTable(['borderSize' => 1, 'borderColor' => '000000']);
             $table->addRow();
