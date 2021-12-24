@@ -185,6 +185,50 @@ class ClientController extends AppBaseController
     }
 
 
+    /**
+     * Download client's all prepared cartograms
+     */
+    public function cartograms($id) {
+        $client = Client::with(['fields', 'fields.cartogram'])->findOrFail($id);
+    
+        $cartograms = [];
+
+        foreach ($client->fields as $key => $field) {
+            if ($field->cartogram->status == 'completed') {
+                $cartograms[] = $field->cartogram;
+            }
+        }
+
+        // dd($cartograms);
+
+        $filename = str_replace(' ', '-', str_replace('"', '', $client->khname)) . '-' . intval(microtime(true)) . '.zip';
+        $zipname = public_path('docs/' . $filename);
+        $zip = new \ZipArchive();      
+        $zip->open($zipname, \ZipArchive::CREATE);
+
+        // dd($filename);
+
+        foreach ($cartograms as $key => $cartogram) {
+            $zip->addFile(public_path('docs/cartograms' . $cartogram->id . '.zip'), 'Поле №' . $cartogram->field->num . '.zip');
+        }
+
+        // dd($zip);
+
+        // dd([$zipname, filesize($zipname)]);
+
+        header('Content-Type: application/zip');
+        header("Content-Transfer-Encoding: Binary");
+        header("Content-Disposition: attachment; filename=" . $filename);
+        header("Pragma: no-cache"); 
+        header("Expires: 0");
+        header('Cache-Control: must-revalidate');
+        header('Content-Length: ' . filesize($zipname));
+
+        // download
+        readfile($zipname);
+    }
+
+
     public function protocol($id) {
         $client = Client::findOrFail($id);
         $fields = Field::with(['polygon', 'polygon.points'])->whereClientId($client->id)->get();

@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('regions', App\Http\Controllers\RegionController::class);
 
-
+    Route::get('/clients/{id}/cartograms', [App\Http\Controllers\ClientController::class, 'cartograms']);
     Route::get('/clients/{id}/protocol', [App\Http\Controllers\ClientController::class, 'protocol']);
     Route::post('/clients/{id}/generate-protocol', [App\Http\Controllers\ProtocolController::class, 'generateForClient']);
     Route::resource('clients', App\Http\Controllers\ClientController::class);
