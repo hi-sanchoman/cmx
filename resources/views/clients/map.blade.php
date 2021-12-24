@@ -914,6 +914,66 @@
                     color = getColorForValue('no3', value);
                 }
 
+                if (_value == 'no3_2') {
+                    var value = _results['no3_2'][i];
+                    color = getColorForValue('no3_2', value);
+                }
+
+                if (_value == 'b') {
+                    var value = _results['b'][i];
+                    color = getColorForValue('b', value);
+                }
+
+                if (_value == 'fe') {
+                    var value = _results['fe'][i];
+                    color = getColorForValue('fe', value);
+                }
+
+                if (_value == 'cu') {
+                    var value = _results['cu'][i];
+                    color = getColorForValue('cu', value);
+                }
+
+                if (_value == 'zn') {
+                    var value = _results['zn'][i];
+                    color = getColorForValue('zn', value);
+                }
+
+                if (_value == 'mn') {
+                    var value = _results['mn'][i];
+                    color = getColorForValue('mn', value);
+                }
+
+                if (_value == 'na') {
+                    var value = _results['na'][i];
+                    color = getColorForValue('na', value);
+                }
+
+                if (_value == 'calcium') {
+                    var value = _results['calcium'][i];
+                    color = getColorForValue('calcium', value);
+                }
+
+                if (_value == 'magnesium') {
+                    var value = _results['magnesium'][i];
+                    color = getColorForValue('magnesium', value);
+                }
+
+                if (_value == 'salinity') {
+                    var value = _results['salinity'][i];
+                    color = getColorForValue('salinity', value);
+                }
+
+                if (_value == 'salinity_2') {
+                    var value = _results['salinity_2'][i];
+                    color = getColorForValue('salinity_2', value);
+                }
+
+                if (_value == 'absorbed_sum') {
+                    var value = _results['absorbed_sum'][i];
+                    color = getColorForValue('absorbed_sum', value);
+                }
+
                 _map.addLayer({
                     'id': 'voronoi_' + id + '-' + i,
                     'type': 'fill',
