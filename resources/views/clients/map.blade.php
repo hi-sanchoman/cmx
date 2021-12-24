@@ -57,6 +57,11 @@
             max-width: 200px;
         }
 
+        h3 {
+            font-size: 14px;
+            text-align: left;
+        }
+
         .mapboxgl-popup-content {
             text-align: center;
             font-family: 'Open Sans', sans-serif;
@@ -378,6 +383,31 @@
             }
         }
 
+        function makeProperties(i) {
+            var text = 'Гумус: ' + _results['humus'][i] + "<br>" + 
+                        'pH: ' + _results['ph'][i] + "<br>" + 
+                        'Фосфор: ' + _results['p'][i] + "<br>" + 
+                        'сера: ' + _results['s'][i] + "<br>" + 
+                        'Калий: ' + _results['k'][i] + "<br>" + 
+                        'Нитраты: ' + _results['no3'][i] + "<br>";
+
+            if (_results['b'][i] != 0 && _results['fe'][i] != 0 && _results['mn'][i] != 0 && _results['cu'][i] != 0 && _results['zn'][i] != 0 && _results['na'][i] != 0 && _results['calcium'][i] != 0 && _results['magnesium'][i] != 0 && _results['salinity'][i] != 0 && _results['absorbed_sum'][i] != 0) {
+
+                text += 'Бор: ' + _results['b'][i] + "<br>" +
+                        'Железо: ' + _results['fe'][i] + "<br>" +
+                        'Марганец: ' + _results['mn'][i] + "<br>" +
+                        'Медь: ' + _results['cu'][i] + "<br>" +
+                        'Цинк: ' + _results['zn'][i] + "<br>" +
+                        'Натрий: ' + _results['na'][i] + "<br>" +
+                        'Кальций: ' + _results['calcium'][i] + "<br>" +
+                        'Магний: ' + _results['magnesium'][i] + "<br>" +
+                        'Общая засоленность: ' + _results['salinity'][i] + "<br>" +
+                        'Сумма поглощенных оснований: ' + _results['absorbed_sum'][i] + "<br>";
+            }
+
+            return text;
+        }
+
         var minLat = 90;
         var maxLat = -90;
         var minLng = 180;
@@ -542,23 +572,7 @@
                         coordinates: _points[i]
                     },
                     properties: {
-                        value: 'Гумус: ' + _results['humus'][i] + "<br>" + 
-                        'pH: ' + _results['ph'][i] + "<br>" + 
-                        'Фосфор: ' + _results['p'][i] + "<br>" + 
-                        'сера: ' + _results['s'][i] + "<br>" + 
-                        'Калий: ' + _results['k'][i] + "<br>" + 
-                        'Нитраты: ' + _results['no3'][i] + "<br>" +
-
-                        'Бор: ' + _results['b'][i] + "<br>" +
-                        'Железо: ' + _results['fe'][i] + "<br>" +
-                        'Марганец: ' + _results['mn'][i] + "<br>" +
-                        'Медь: ' + _results['cu'][i] + "<br>" +
-                        'Цинк: ' + _results['zn'][i] + "<br>" +
-                        'Натрий: ' + _results['na'][i] + "<br>" +
-                        'Кальций: ' + _results['calcium'][i] + "<br>" +
-                        'Магний: ' + _results['magnesium'][i] + "<br>" +
-                        'Общая засоленность: ' + _results['salinity'][i] + "<br>" +
-                        'Сумма поглощенных оснований: ' + _results['absorbed_sum'][i] + "<br>",
+                        value: makeProperties(i),
 
                         id: _results['id'][i]
                     }
