@@ -258,7 +258,7 @@ class ProtocolController extends AppBaseController
         $filename = 'protocol_client_' . $client->id . '.docx';
         $objWriter->save('docs/' . $filename);
 
-        return response()->download(public_path('docs/' . $filename));
+        return response()->download(public_path('docs/' . $filename), 'Протокол общий ' . $client->khname . '.docx');
     }
 
 
@@ -317,7 +317,7 @@ class ProtocolController extends AppBaseController
         $filename = 'protocol_' . $protocol->id . '.docx';
         $objWriter->save('docs/' . $filename);
 
-        return response()->download(public_path('docs/' . $filename));
+        return response()->download(public_path('docs/' . $filename), 'Протокол ' . $client->khname . ' - Поле №' . $field->num . '.docx');
     }
 
 
