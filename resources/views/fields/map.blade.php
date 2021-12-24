@@ -400,7 +400,7 @@
                 'point_id': currentMarker._id
             };
 
-            $.post('/delete_point', data, function (res) {
+            $.post('http://185.146.3.112/plesk-site-preview/cemexlab.kz/https/185.146.3.112/delete_point', data, function (res) {
                 if (res == 1) {
                     // remove from map
                     currentMarker.remove();
@@ -415,7 +415,7 @@
                 'lng': point[0]
             };
 
-            $.post('/update_point', data, function (res) {
+            $.post('http://185.146.3.112/plesk-site-preview/cemexlab.kz/https/185.146.3.112/update_point', data, function (res) {
                 if (res == 0) {
                     alert('Ошибка в базе. Попробуйте еще раз');
                 }
@@ -459,7 +459,7 @@
 
         console.log(data);
 
-        $.post('/update_polygon', data, function(res) {
+        $.post('http://185.146.3.112/plesk-site-preview/cemexlab.kz/https/185.146.3.112/update_polygon', data, function(res) {
             console.log('update polygon', res);
         });
     }
@@ -666,7 +666,7 @@
             polygon_id: {!! $field->polygon->id !!},
         };
 
-        $.post('/points', data).then(function(res) {
+        $.post('http://185.146.3.112/plesk-site-preview/cemexlab.kz/https/185.146.3.112/points', data).then(function(res) {
             if (res != 0) {
                 // make them red
                 const marker = new mapboxgl.Marker({draggable: true, color: "#ff0000"})
@@ -690,7 +690,7 @@
             var data = {id: {!! $field->polygon->id !!}};
             console.log('polygon_id', data);
 
-            $.post('/clear_polygon', data).then(function(res) {
+            $.post('http://185.146.3.112/plesk-site-preview/cemexlab.kz/https/185.146.3.112/clear_polygon', data).then(function(res) {
                 // console.log('create points');
 
                 if (res == 1) {
@@ -712,7 +712,7 @@
                         polygon_id: {!! $field->polygon->id !!},
                     };
 
-                    $.post('/points', data).then(function(res) {
+                    $.post('http://185.146.3.112/plesk-site-preview/cemexlab.kz/https/185.146.3.112/points', data).then(function(res) {
                         if (res != 0) {
                             // make them red
                             const marker = new mapboxgl.Marker({draggable: true, color: "#ff0000"})
