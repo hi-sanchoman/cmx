@@ -212,7 +212,7 @@ class ProtocolController extends AppBaseController
         $input = $request->all();
         // dd($input);
 
-        $client = Client::with(['fields'])->findOrFail($id);
+        $client = Client::with(['fields', 'fields.polygon', 'fields.polygon.points'])->findOrFail($id);
         $now = Carbon::now();
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
