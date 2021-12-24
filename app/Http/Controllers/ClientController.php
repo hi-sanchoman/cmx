@@ -206,19 +206,20 @@ class ClientController extends AppBaseController
         $zip = new \ZipArchive();      
         $zip->open($zipname, \ZipArchive::CREATE);
 
-        // dd($filename);
+        // dd([$filename, $zip]);
 
         foreach ($cartograms as $key => $cartogram) {
-            $zip->addFile(public_path($cartogram->access_url), 'Поле №' . $cartogram->field->num . '.zip');
+            $zip->addFile(public_path($cartogram->access_url), 'Поле № ' . $cartogram->field->num . '.zip');
         }
 
-        // dd($zip);
+        $zip->close();
 
-        // dd([$zipname, filesize($zipname)]);
+        // dd([$zip, $zipname, filesize($zipname)]);
 
         header('Content-Type: application/zip');
         header("Content-Transfer-Encoding: Binary");
-        header("Content-Disposition: attachment; filename=" . str_replace(' ', '-', str_replace('"', '', $client->khname)) . '- все картограммы.zip');
+        header("Content-Disposition: attachment; filename=" . str_replace('"', '', $client->khname) . '- все картограммы.zip');
+        // header('Content-Disposition: attachment; filename=' . $filename);
         header("Pragma: no-cache"); 
         header("Expires: 0");
         header('Cache-Control: must-revalidate');
