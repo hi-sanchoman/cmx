@@ -324,7 +324,7 @@ class ProtocolController extends AppBaseController
     private function _generateHeader($section, $input, $field) {
         $pointsIds = [];        
 
-        if (is_array($field)) {
+        if ($field instanceof Illuminate\Database\Eloquent\Collection) {
             foreach ($field as $f) {
                 foreach ($f->polygon->points as $point) {
                     if ($point == null) continue;
