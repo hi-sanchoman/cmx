@@ -244,7 +244,7 @@ class ProtocolController extends AppBaseController
 
         
         // header
-        $this->_generateHeader($section, $input, $field);
+        $this->_generateHeader($section, $input, $client->fields);
 
         // loop of results for each Point's sample
         foreach ($client->fields as $field) {
@@ -324,11 +324,22 @@ class ProtocolController extends AppBaseController
     private function _generateHeader($section, $input, $field) {
         $pointsIds = [];        
 
-        foreach ($field->polygon->points as $point) {
-            if ($point == null) continue;
-            $pointsIds[] = $point->id;
+        if (is_array($field)) {
+            foreach ($field as $f) {
+                foreach ($f->polygon->points as $point) {
+                    if ($point == null) continue;
+                    $pointsIds[] = $point->id;
+                }  
+            }
+        } else {
+            foreach ($field->polygon->points as $point) {
+                if ($point == null) continue;
+                $pointsIds[] = $point->id;
+            }    
         }
 
+        
+        // get samples
         $samples = Sample::with(['point', 'result'])->whereIn('point_id', $pointsIds)->orderBy('num', 'ASC')->get();
 
         $datesSelected = [];
