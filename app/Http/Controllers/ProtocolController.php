@@ -478,7 +478,7 @@ class ProtocolController extends AppBaseController
             // if ($result->humus == null) continue;
 
             $year = '';
-            if ($date->date_completed != null) {
+            if ($sample->date_completed != null) {
                 $year = $sample->date_completed->format('Y');
             }
 
