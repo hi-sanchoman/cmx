@@ -242,9 +242,13 @@ class ProtocolController extends AppBaseController
             'marginBottom' => 300
         ]);
 
+        $fields = [];
+        foreach ($client->fields as $field) {
+            $fields[] = $field;
+        }
         
         // header
-        $this->_generateHeader($section, $input, $client->fields);
+        $this->_generateHeader($section, $input, $fields);
 
         // loop of results for each Point's sample
         foreach ($client->fields as $field) {
@@ -324,7 +328,7 @@ class ProtocolController extends AppBaseController
     private function _generateHeader($section, $input, $field) {
         $pointsIds = [];        
 
-        if ($field instanceof Illuminate\Database\Eloquent\Collection) {
+        if (is_array($field)) {
             foreach ($field as $f) {
                 foreach ($f->polygon->points as $point) {
                     if ($point == null) continue;
