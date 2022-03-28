@@ -13,6 +13,9 @@ use DB;
 use Response;
 use App\Models\Protocol;
 use App\Models\Field;
+use App\Models\Polygon;
+use App\Models\Point;
+use App\Models\Qrcode;
 use App\Models\Sample;
 use App\Models\Cartogram;
 use Image;
@@ -36,6 +39,7 @@ class ClientController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $query = null;
         $input = $request->all();
 
         $clients = Client::with('region')->orderBy('num', 'ASC');
@@ -44,6 +48,7 @@ class ClientController extends AppBaseController
             // dd($query);
             $query = $input['query'];
 
+            $clients = $clients->orWhere('num', 'like', '%'.$query.'%');
             $clients = $clients->orWhere('khname', 'like', '%'.$query.'%');
             $clients = $clients->orWhere('lastname', 'like', '%'.$query.'%');
             $clients = $clients->orWhere('firstname', 'like', '%'.$query.'%');
@@ -51,7 +56,7 @@ class ClientController extends AppBaseController
 
         $clients = $clients->get();
 
-        return view('clients.index', compact('clients'));
+        return view('clients.index', compact('clients', 'query'));
     }
 
     /**
@@ -182,6 +187,98 @@ class ClientController extends AppBaseController
         Flash::success(__('messages.deleted', ['model' => __('models/clients.singular')]));
 
         return redirect(route('clients.index'));
+    }
+
+
+    /**
+     * Self selection (create)
+     */
+    public function selfSelection($id) {
+        $client = Client::findOrFail($id);
+
+        return view('clients.selfselection', compact('client'));
+    }
+
+    /**
+     * Store self selection
+     */
+    public function storeSelfSelection($id, Request $request) {
+        $input = $request->all();
+
+        // start transaction
+        DB::beginTransaction();
+
+        // field
+        $field = Field::create([
+            'cadnum' => '-',
+            'type' => $input['field_type'],
+            'square' => $input['field_square'],
+            'culture' => $input['field_culture'],
+            'description' => $input['field_description'],
+            'region_id' => $input['field_region_id'],
+            'client_id' => $id,
+            'num' => $input['field_num'],
+            'address' => $input['field_address'],
+            'is_selfselection' => 1,
+        ]);
+
+        // create polygon
+        $polygon = Polygon::create([
+            'field_id' => $field->id,
+            'geometry' => 'NO_GEOMETRY',
+        ]);
+        // dd($polygon);
+
+        // create cartogram
+        $cartogram = Cartogram::create([
+            'field_id' => $field->id,
+            'status' => 'pending',
+            'access_url' => '',
+            'path' => '',
+        ]);
+
+        // protocol
+        $protocol = Protocol::create([
+            'client_id' => $id,
+            'path' => '',
+            'access_url' => '',
+            'num' => 0,
+        ]);
+
+
+        // points
+        for ($i = 0; $i < $input['qty']; $i++) {
+            // dd($pointJson);
+            
+            // point
+            $point = Point::create([
+                'polygon_id' => $polygon->id,
+                'lat' => '0.00',
+                'lon' => '0.00',
+                'num' => ($i + 1),
+            ]);
+            // dd($point);
+
+            $qrcode = Qrcode::create([
+                'point_id' => $point->id,
+                'content' => 'content',
+            ]);
+
+            $sample = Sample::create([
+                'point_id' => $point->id,
+                'date_selected' => now(),
+                'date_received' => now(),
+                'num' => 0,
+                'quantity' => 1,
+                'passed' => 'сдал',
+                'accepted' => 'принял',
+            ]);
+        }
+        
+        // commit db
+        DB::commit();
+
+        return redirect('/clients/' . $id);
     }
 
 

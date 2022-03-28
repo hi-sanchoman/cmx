@@ -42,7 +42,9 @@
                             <a href="{!! route('fields.edit', [$field->id]) !!}" class='btn btn-warning action-btn edit-btn'><i class="fa fa-edit"></i></a>
                         @endif
 
-                        <a href="{!! route('fields.map', [$field->id]) !!}" target="_blank" class='btn btn-light action-btn '><i class="fa fa-map"></i></a>
+                        @if ($field->is_selfselection == 0)
+                            <a href="{!! route('fields.map', [$field->id]) !!}" target="_blank" class='btn btn-light action-btn '><i class="fa fa-map"></i></a>
+                        @endif
 
                         {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger action-btn delete-btn', 'onclick' => 'return confirm("'.__('crud.are_you_sure').'")']) !!}
 

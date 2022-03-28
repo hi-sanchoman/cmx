@@ -84,7 +84,7 @@
         }
       
         // if not logged
-        var token = "076f78b665e849ddffe9e4e75b5b900cD0812C929B7A7C2B63495EA46779642E8DC16818"; // get token from input
+        var token = "076f78b665e849ddffe9e4e75b5b900cE34864ABF94754C589024C85ABC01F39CFE56A36"; // get token from input
         if (!token) { // if token is empty - print message to log
             msg("Enter token");
             return;

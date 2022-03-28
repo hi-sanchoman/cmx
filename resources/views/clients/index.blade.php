@@ -11,7 +11,7 @@
                     @csrf
                     <!-- navbar search -->
                     <div class="search-element">
-                        <input class="form-control" type="search" name="query" placeholder="Поиск" aria-label="Поиск">
+                        <input class="form-control" type="search" name="query" placeholder="Поиск" aria-label="Поиск" @if (isset($query)) value="{{ $query }}" @endif>
                         <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                 </form>

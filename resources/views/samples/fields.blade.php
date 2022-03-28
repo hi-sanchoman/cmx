@@ -13,7 +13,7 @@
 <!-- Date Selected Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('date_selected', __('models/samples.fields.date_selected').':') !!}
-    {!! Form::date('date_selected', null, ['class' => 'form-control','id'=>'date_selected']) !!}
+    {!! Form::date('date_selected', isset($sample) ? $sample->date_selected->format('Y-m-d') : null, ['class' => 'form-control','id'=>'date_selected']) !!}
 </div>
 
 @push('scripts')
@@ -28,7 +28,7 @@
 <!-- Date Received Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('date_received', __('models/samples.fields.date_received').':') !!}
-    {!! Form::date('date_received', null, ['class' => 'form-control','id'=>'date_received']) !!}
+    {!! Form::date('date_received', isset($sample) ? $sample->date_received->format('Y-m-d') : null, ['class' => 'form-control','id'=>'date_received']) !!}
 </div>
 
 @push('scripts')
@@ -43,7 +43,7 @@
 <!-- Date Started Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('date_started', __('models/samples.fields.date_started').':') !!}
-    {!! Form::date('date_started', null, ['class' => 'form-control','id'=>'date_started']) !!}
+    {!! Form::date('date_started', isset($sample) ? $sample->date_started->format('Y-m-d') : null, ['class' => 'form-control','id'=>'date_started']) !!}
 </div>
 
 @push('scripts')
@@ -58,7 +58,7 @@
 <!-- Date Completed Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('date_completed', __('models/samples.fields.date_completed').':') !!}
-    {!! Form::date('date_completed', null, ['class' => 'form-control','id'=>'date_completed']) !!}
+    {!! Form::date('date_completed', isset($sample) ? $sample->date_completed->format('Y-m-d') : null, ['class' => 'form-control','id'=>'date_completed']) !!}
 </div>
 
 @push('scripts')

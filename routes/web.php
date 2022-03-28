@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('regions', App\Http\Controllers\RegionController::class);
 
+    Route::get('/clients/{id}/self-selection', [App\Http\Controllers\ClientController::class, 'selfSelection']);
+    Route::post('/clients/{id}/self-selection', [App\Http\Controllers\ClientController::class, 'storeSelfSelection']);
     Route::get('/clients/{id}/cartograms', [App\Http\Controllers\ClientController::class, 'cartograms']);
     Route::get('/clients/{id}/protocol', [App\Http\Controllers\ClientController::class, 'protocol']);
     Route::post('/clients/{id}/generate-protocol', [App\Http\Controllers\ProtocolController::class, 'generateForClient']);

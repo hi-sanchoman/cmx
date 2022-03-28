@@ -127,6 +127,7 @@ class SampleController extends AppBaseController
     public function edit($id)
     {
         $sample = $this->sampleRepository->find($id);
+        // dd($sample->toArray());
 
         if (empty($sample)) {
             Flash::error(__('messages.not_found', ['model' => __('models/samples.singular')]));

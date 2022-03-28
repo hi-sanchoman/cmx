@@ -41,6 +41,7 @@ class Field extends Model
         'client_id',
         'num',
         'address',
+        'is_selfselection',
     ];
 
     /**
@@ -58,6 +59,7 @@ class Field extends Model
         'client_id' => 'integer',
         'num' => 'integer',
         'address' => 'string',
+        'is_selfselection' => 'integer',
     ];
 
     /**
