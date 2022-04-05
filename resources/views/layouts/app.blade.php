@@ -72,6 +72,12 @@
     let loginUrl = '{{ route('login') }}';
     // Loading button plugin (removed from BS4)
     (function ($) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        
         $.fn.button = function (action) {
             if (action === 'loading' && this.data('loading-text')) {
                 this.data('original-text', this.html()).html(this.data('loading-text')).prop('disabled', true);

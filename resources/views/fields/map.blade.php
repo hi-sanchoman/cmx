@@ -705,7 +705,6 @@
                     console.log(dotsMarkers[i]._lngLat);
 
                     var data = {
-                        "_token": "{{ csrf_token() }}",
                         ajax: 1,
                         lat: dotsMarkers[i]._lngLat.lat,
                         lon: dotsMarkers[i]._lngLat.lng,
