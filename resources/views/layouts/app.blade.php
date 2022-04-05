@@ -65,6 +65,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+<script>
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    });
+</script>
+
 @yield('page_js')
 @yield('scripts')
 <script>
@@ -72,11 +82,7 @@
     let loginUrl = '{{ route('login') }}';
     // Loading button plugin (removed from BS4)
     (function ($) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        
         
         $.fn.button = function (action) {
             if (action === 'loading' && this.data('loading-text')) {
