@@ -15,3 +15,6 @@ yarn-error.log
 /.idea
 public/mix-manifest.json
 package-lock.json
+public/img/qrcodes
+public/img/docs
+public/img/map
