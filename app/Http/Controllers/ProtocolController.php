@@ -189,7 +189,7 @@ class ProtocolController extends AppBaseController
         }
 
         $firstSample = $samples->first();
-        if ($firstSample->date_started == null || $firstSample->date_completed == null || $firstSample->result == null) {
+        if ($firstSample != null && $firstSample->date_started == null || $firstSample->date_completed == null || $firstSample->result == null) {
             Flash::error('Не готовы результаты испытаний');
             return redirect()->route('protocols.index');
         }
