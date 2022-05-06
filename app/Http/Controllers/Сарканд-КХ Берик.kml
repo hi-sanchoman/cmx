@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+  <Document>
+    <Folder>
+      <name>Сарканд</name>
+      <open>1</open>
+      <Style>
+        <ListStyle>
+          <listItemType>check</listItemType>
+          <bgColor>00ffffff</bgColor>
+        </ListStyle>
+      </Style>
+      <Folder>
+        <name>КХ Берик</name>
+        <open>1</open>
+        <Style>
+          <ListStyle>
+            <listItemType>check</listItemType>
+            <bgColor>00ffffff</bgColor>
+          </ListStyle>
+        </Style>
+        <Folder>
+          <name>03-263-038-130</name>
+          <open>1</open>
+          <Style>
+            <ListStyle>
+              <listItemType>check</listItemType>
+              <bgColor>00ffffff</bgColor>
+            </ListStyle>
+          </Style>
+          <Placemark>
+            <name>27га</name>
+            <description></description>
+            <Style>
+              <LineStyle>
+                <color>A6000000</color>
+                <width>2</width>
+              </LineStyle>
+              <PolyStyle>
+                <color>33FFFFFF</color>
+                <fill>1</fill>
+              </PolyStyle>
+            </Style>
+            <Polygon>
+              <extrude>1</extrude>
+              <outerBoundaryIs>
+                <LinearRing>
+                  <coordinates>79.9883614568812,45.4686469612141,0 79.9874337310648,45.4680507685072,0 79.9864088087183,45.4671872616889,0 79.9755032653666,45.4722190247884,0 79.9755032653667,45.4723619739589,0 79.9752672309733,45.4727381542541,0 79.9751384849406,45.4731293790974,0 79.9752243156291,45.4734905073115,0 79.9752672309733,45.473821539475,0 79.9754653959376,45.474891640613,0 79.9882112531763,45.4685416233386,0 79.9883614568812,45.4686469612141,0 </coordinates>
+                </LinearRing>
+              </outerBoundaryIs>
+            </Polygon>
+          </Placemark>
+          <Placemark>
+            <name>Метка 208</name>
+            <description>10.11.2021 15:22:04</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9759291111111,45.4741494722222,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 209</name>
+            <description>10.11.2021 15:22:33</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9774311388889,45.4721331666667,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 210</name>
+            <description>10.11.2021 15:22:41</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9807356388889,45.4715312777778,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 211</name>
+            <description>10.11.2021 15:22:49</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9827955555556,45.4696051666667,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 212</name>
+            <description>10.11.2021 15:22:56</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9862716944444,45.4686721944444,0 </coordinates>
+            </Point>
+          </Placemark>
+        </Folder>
+        <Folder>
+          <name>03-263-038-424</name>
+          <open>1</open>
+          <Style>
+            <ListStyle>
+              <listItemType>check</listItemType>
+              <bgColor>00ffffff</bgColor>
+            </ListStyle>
+          </Style>
+          <Placemark>
+            <name>26,7га</name>
+            <description>04.11.2021 12:38:10</description>
+            <Style>
+              <LineStyle>
+                <color>A6000000</color>
+                <width>2</width>
+              </LineStyle>
+              <PolyStyle>
+                <color>33FFFFFF</color>
+                <fill>1</fill>
+              </PolyStyle>
+            </Style>
+            <Polygon>
+              <extrude>1</extrude>
+              <outerBoundaryIs>
+                <LinearRing>
+                  <coordinates>79.9614893381116,45.4734667140069,0 79.9727349221461,45.4684407505798,0 79.9723057687037,45.4678087180618,0 79.9720482766383,45.4672970674995,0 79.9726490914576,45.4668456072642,0 79.9729924142115,45.4664242411157,0 79.973807805752,45.466123263367,0 79.9743227898829,45.4655213030485,0 79.9742584168664,45.4653331891308,0 79.9739580094568,45.4652955662719,0 79.9737327038995,45.4651751729547,0 79.9733571946374,45.464972008649,0 79.973282092785,45.4647688436111,0 79.9731426179163,45.464565677841,0 79.9722950398675,45.4643926101259,0 79.9719624459497,45.4645431038213,0 79.9716083943597,45.4648290407357,0 79.9711577832452,45.4650021071109,0 79.9706857144586,45.4652127958939,0 79.9701921879999,45.4654460575567,0 79.969859594082,45.4656567446806,0 79.9682665206338,45.4667625993072,0 79.9672150947,45.467041000623,0 79.9663353301431,45.467515032132,0 79.965605769291,45.467823526687,0 79.9650478698159,45.4678837205496,0 79.9643539373396,45.4682710600743,0 79.9635492746351,45.4685645022177,0 79.9627767984388,45.4689708042021,0 79.9623583738325,45.4692341465166,0 79.9619399492261,45.4697081595821,0 79.9609314386365,45.4712007789635,0 79.960834879112,45.4715444311815,0 79.960824150276,45.472003377462,0 79.9609207098005,45.4722667056077,0 79.9614893381116,45.4734667140069,0 </coordinates>
+                </LinearRing>
+              </outerBoundaryIs>
+            </Polygon>
+          </Placemark>
+          <Placemark>
+            <name>26,7</name>
+            <description></description>
+            <Style>
+              <LineStyle>
+                <color>A60000FF</color>
+                <width>2</width>
+              </LineStyle>
+              <PolyStyle>
+                <color>33FFFFFF</color>
+                <fill>1</fill>
+              </PolyStyle>
+            </Style>
+            <Polygon>
+              <extrude>1</extrude>
+              <outerBoundaryIs>
+                <LinearRing>
+                  <coordinates>79.9609711013182,45.472171057256,0 79.9608627022425,45.4717048307328,0 79.9608090580622,45.4714302143299,0 79.9609659178688,45.471190589981,0 79.9615504584654,45.4708167828155,0 79.9617864928587,45.4706211627066,0 79.9620146521336,45.4702907361738,0 79.9622131356007,45.4700462086494,0 79.9624008902317,45.4698430618992,0 79.9627495774037,45.4696286284242,0 79.9632885299071,45.4693721875442,0 79.9640853174931,45.4690981842178,0 79.9658419928893,45.4685144415837,0 79.9672581992491,45.4680027974273,0 79.9683411934227,45.4676554923023,0 79.9700223443284,45.4670871239869,0 79.9711744392592,45.4665734743691,0 79.9703268612105,45.4668819740771,0 79.9677841270644,45.4676645023488,0 79.9660245979506,45.4682739639582,0 79.964651306935,45.4687705574344,0 79.9638681019027,45.4690489488329,0 79.9632780159194,45.4692746705792,0 79.9626110883881,45.4695164196377,0 79.962246307962,45.4698023313257,0 79.9619888158966,45.4701860526274,0 79.9616776796509,45.4705547235743,0 79.9614094587494,45.4707428200671,0 79.9613021703888,45.470675105402,0 79.9614523740936,45.4705095803226,0 79.9621819349457,45.4695314676575,0 79.9623750539948,45.4692455545956,0 79.962772020929,45.469057453106,0 79.9631260725189,45.4689069714624,0 79.9635766836334,45.4689445919109,0 79.9639843794037,45.4687489653042,0 79.9639414640595,45.4685683862953,0 79.9646924825836,45.4681921781688,0 79.9648856016327,45.4680416942151,0 79.9653147550751,45.4678912098597,0 79.9657117220093,45.4678159675313,0 79.9661730619599,45.4676730068307,0 79.9666344019104,45.4674171815142,0 79.9669562669922,45.4672591711798,0 79.967632183664,45.4672591711798,0 79.9679111334015,45.4671312577276,0 79.968190083139,45.467048490045,0 79.9685655924011,45.4668904786771,0 79.9688338133026,45.4668001862681,0 79.9696599336792,45.4666797961643,0 79.9703036638428,45.4665142593518,0 79.9707864614655,45.4664540640268,0 79.9716102120652,45.466424978605,0 79.97211446736,45.4664136919686,0 79.9725797019347,45.466407641718,0 79.9727581975236,45.4666544730556,0 79.9726187226548,45.4667522900784,0 79.9724363324418,45.466808722899,0 79.9723075864091,45.4668501069315,0 79.972109102942,45.4668501069315,0 79.9720340010896,45.4669103018336,0 79.9719052550568,45.4669930697191,0 79.9721666417465,45.4673143277407,0 79.9723275742873,45.4676529204407,0 79.972617252861,45.4681570435811,0 79.9622091711679,45.4730625904342,0 79.9619731367746,45.4729986403293,0 79.9617263735452,45.4728556927736,0 79.9613830507913,45.4726826968324,0 79.9609711013182,45.472171057256,0 </coordinates>
+                </LinearRing>
+              </outerBoundaryIs>
+            </Polygon>
+          </Placemark>
+          <Placemark>
+            <name>Метка 202</name>
+            <description>10.11.2021 13:57:09</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9614315277778,45.4714884166667,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 203</name>
+            <description>10.11.2021 14:24:14</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9708481666667,45.4670914166667,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 204</name>
+            <description>10.11.2021 14:24:21</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9688311388889,45.4693637222222,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 205</name>
+            <description>10.11.2021 14:24:32</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9655481111111,45.4692283055556,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 206</name>
+            <description>10.11.2021 14:24:37</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9644323333333,45.4714102222222,0 </coordinates>
+            </Point>
+          </Placemark>
+          <Placemark>
+            <name>Метка 207</name>
+            <description>10.11.2021 14:24:46</description>
+            <Style>
+              <LabelStyle>
+                <color>A600FFFF</color>
+                <scale>1</scale>
+              </LabelStyle>
+              <IconStyle>
+                <scale>0.5</scale>
+                <Icon>
+                  <href>files/1.png</href>
+                </Icon>
+                <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+              </IconStyle>
+            </Style>
+            <Point>
+              <extrude>1</extrude>
+              <coordinates>79.9669059166667,45.4674745555556,0 </coordinates>
+            </Point>
+          </Placemark>
+        </Folder>
+      </Folder>
+    </Folder>
+  </Document>
+</kml>
